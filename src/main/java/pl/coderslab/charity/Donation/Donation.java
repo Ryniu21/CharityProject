@@ -7,6 +7,9 @@ import pl.coderslab.charity.Category.Category;
 import pl.coderslab.charity.Institution.Institution;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -20,6 +23,7 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private Integer quantity;
 
     @ManyToMany
@@ -28,11 +32,22 @@ public class Donation {
     @ManyToOne
     private Institution institution;
 
+    @NotEmpty
     private String street;
+
+    @NotEmpty
     private String city;
+
+    @Pattern(regexp= "\\d{2}-\\d{3}")
     private String zipCode;
+
+    @NotEmpty
     private LocalDate pickUpDate;
+
+    @NotEmpty
     private LocalTime pickUpTime;
+
+    @NotEmpty
     private String pickUpComment;
 
 }

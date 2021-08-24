@@ -9,4 +9,10 @@ import javax.transaction.Transactional;
 @Transactional
 @RequiredArgsConstructor
 public class DonationService {
+    private final DonationRepository donationRepository;
+
+    public Integer sumOfAllDonations(){return donationRepository.SumOfAllDonations();}
+
+    public Integer countOfAllDonations(){return donationRepository.CountOfAllDonations();}
+
 }
