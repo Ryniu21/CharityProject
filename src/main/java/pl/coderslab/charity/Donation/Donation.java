@@ -3,6 +3,7 @@ package pl.coderslab.charity.Donation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.charity.Category.Category;
 import pl.coderslab.charity.Institution.Institution;
 
@@ -42,6 +43,7 @@ public class Donation {
     private String zipCode;
 
     @NotEmpty
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
     @NotEmpty
