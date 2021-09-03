@@ -1,4 +1,4 @@
-package pl.coderslab.charity.Donation;
+package pl.coderslab.charity.donation;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,8 @@ import javax.transaction.Transactional;
 public class DonationService {
     private final DonationRepository donationRepository;
 
-    public Integer sumOfAllDonations(){return donationRepository.SumOfAllDonations();}
+    public Integer sumOfAllDonations(){return donationRepository.sumOfAllDonations();}
 
-    public Integer countOfAllDonations(){return donationRepository.CountOfAllDonations();}
+    public Integer countOfAllDonations(){return donationRepository.countOfAllDonations();}
 
 }

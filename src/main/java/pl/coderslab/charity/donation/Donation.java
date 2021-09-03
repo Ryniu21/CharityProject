@@ -1,11 +1,10 @@
-package pl.coderslab.charity.Donation;
+package pl.coderslab.charity.donation;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.coderslab.charity.Category.Category;
-import pl.coderslab.charity.Institution.Institution;
+import pl.coderslab.charity.category.Category;
+import pl.coderslab.charity.institution.Institution;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

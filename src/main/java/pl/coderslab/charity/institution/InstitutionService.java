@@ -1,4 +1,4 @@
-package pl.coderslab.charity.Institution;
+package pl.coderslab.charity.institution;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,5 +12,5 @@ import java.util.List;
 public class InstitutionService {
     public final InstitutionRepository institutionRepository;
 
-    public List<Institution> findAllInstitutions(){return institutionRepository.findAllInstitutions();}
+    public List<Institution> findAllInstitutions(){return institutionRepository.findAll();}
 }

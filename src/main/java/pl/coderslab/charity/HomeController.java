@@ -4,12 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import pl.coderslab.charity.Donation.Donation;
-import pl.coderslab.charity.Donation.DonationService;
-import pl.coderslab.charity.Institution.Institution;
-import pl.coderslab.charity.Institution.InstitutionService;
+import pl.coderslab.charity.donation.DonationService;
+import pl.coderslab.charity.institution.Institution;
+import pl.coderslab.charity.institution.InstitutionService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package pl.coderslab.charity.Donation;
+package pl.coderslab.charity.donation;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,9 +12,9 @@ import javax.transaction.Transactional;
 public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     @Query("SELECT SUM(quantity) FROM Donation")
-    Integer SumOfAllDonations();
+    Integer sumOfAllDonations();
 
     @Query("SELECT COUNT(id) FROM Donation")
-    Integer CountOfAllDonations();
+    Integer countOfAllDonations();
 
 }
