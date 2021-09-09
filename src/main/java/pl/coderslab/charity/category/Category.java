@@ -2,7 +2,6 @@ package pl.coderslab.charity.category;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 

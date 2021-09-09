@@ -47,7 +47,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form action="form-confirmation.html" method="post" modelAttribute="donation">
+        <form:form method="post" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -74,7 +74,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" name="quantity" path="quantity" step="1" min="1"/>
+                        <form:input type="number" name="quantity" path="quantity" step="1" min="1" id="quantity"/>
                     </label>
                 </div>
 
@@ -89,34 +89,20 @@
             <!-- STEP 4 -->
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="radio" name="organization" value="old" />
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Bez domu”</div>
+                <c:forEach items="${institutions}" var="institution">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <input type="radio" name="institution" value="${institution.id}" id="${institution.name}"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                  <div class="title">${institution.name}</div>
                   <div class="subtitle">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
+                    Cel i misja: ${institution.description}
                   </div>
                 </span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="radio" name="organization" value="old" />
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
-                </span>
-                    </label>
-                </div>
+                        </label>
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
@@ -132,22 +118,22 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="address" /> </label>
+                            <label> Ulica <form:input path="street" name="street" id="street"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city" /> </label>
+                            <label> Miasto <form:input path="city" name="city"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode" />
+                                Kod pocztowy <form:input path="zipCode" name="zipCode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone" />
+                                Numer telefonu <input type="phone" name="phone"/>
                             </label>
                         </div>
                     </div>
@@ -155,17 +141,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data" /> </label>
+                            <label> Data <form:input type="date" path="pickUpDate" name="pichUpDate"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time" /> </label>
+                            <label> Godzina <form:input type="time" path="pickUpTime" name="pichUpTime"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <form:textarea path="pickUpComment" name="pickUpComment"/>
                             </label>
                         </div>
                     </div>
@@ -186,16 +172,12 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
-                                >
+                                <span class="summary--text"> <span id="quantity-summary"></span> - liczba worków w dobrym stanie dla dzieci</span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
-                                >
+                                <span class="summary--text" id="organisation-summary"></span>
                             </li>
                         </ul>
                     </div>
@@ -204,19 +186,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="street-summary"></li>
+                                <li id="city-summary"></li>
+                                <li id="zipcode-summary"></li>
+                                <li id="phone-summary"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="date-summary"></li>
+                                <li id="time-summary"></li>
+                                <li id="pickupcomment-summary"></li>
                             </ul>
                         </div>
                     </div>

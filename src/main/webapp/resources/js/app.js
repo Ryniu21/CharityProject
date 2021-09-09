@@ -164,6 +164,38 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      const formNumberOfBags = document.getElementById("quantity").value;
+      const numberOfBagsToShow = document.getElementById("quantity-summary");
+      numberOfBagsToShow.innerHTML=formNumberOfBags;
+
+      const organisationToShow = document.getElementById("organisation-summary");
+      const institution = document.querySelector("input[name=institution]:checked");
+      organisationToShow.innerHTML = 'Fundacja: ' + institution.id;
+
+      const form = document.querySelector("form");
+      const streetSummaryToShow = document.getElementById("street-summary");
+      streetSummaryToShow.innerHTML = form.elements['street'].value;
+
+      const citySummaryToShow = document.getElementById("city-summary");
+      citySummaryToShow.innerHTML = form.elements['city'].value;
+
+      const zipCodeSummaryToShow = document.getElementById("zipcode-summary");
+      zipCodeSummaryToShow.innerHTML = form.elements['zipCode'].value;
+
+      const phoneSummaryToShow = document.getElementById("phone-summary");
+      phoneSummaryToShow.innerHTML = form.elements['phone'].value;
+
+      const dateSummaryToShow = document.getElementById("date-summary");
+      dateSummaryToShow.innerHTML = form.elements['pickUpDate'].value;
+
+      const timeSummaryToShow = document.getElementById("time-summary");
+      timeSummaryToShow.innerHTML = form.elements['pickUpTime'].value;
+
+      const pickUpCommentSummaryToShow = document.getElementById("pickupcomment-summary");
+      pickUpCommentSummaryToShow.innerHTML = form.elements['pickUpComment'].value;
+
+
+
     }
 
   }
@@ -171,4 +203,8 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
 });
+
+
+
