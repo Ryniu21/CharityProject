@@ -20,6 +20,7 @@
             <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
             <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
             <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="/donation/form" class="btn btn--without-border">Formularz Darów</a></li>
         </ul>
     </nav>
 

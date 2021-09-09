@@ -39,10 +39,10 @@ public class DonationController {
         return "redirect:/donation/form-confirmation";
     }
 
-    @GetMapping("/form/confirmation")
+    @GetMapping("/form-confirmation")
     public String donationFormConfirmation(Model model) {
         model.addAttribute("donation", new Donation());
-        return "donation/form";
+        return "/donation/form-confirmation";
     }
 
 }
