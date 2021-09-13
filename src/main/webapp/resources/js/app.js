@@ -194,8 +194,6 @@ document.addEventListener("DOMContentLoaded", function() {
       const pickUpCommentSummaryToShow = document.getElementById("pickupcomment-summary");
       pickUpCommentSummaryToShow.innerHTML = form.elements['pickUpComment'].value;
 
-
-
     }
 
   }
@@ -203,6 +201,9 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+
+
 
 });
 

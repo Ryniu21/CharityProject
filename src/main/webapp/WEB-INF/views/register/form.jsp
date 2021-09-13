@@ -20,6 +20,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <link rel="stylesheet" href="<c:url value="../resources/css/style.css"/>"/>
+    <!-- import jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- check password confirmation -->
+    <script>
+        $(() => {
+            $('#password, #password_confirmation').on('keyup', function () {
+                if ($('#password').val() == "" && $('#password_confirmation').val() == "") {
+                    $('#submit').prop('disabled', true);
+                    $('#message').hide();
+                } else if ($('#password').val() == $('#password_confirmation').val()) {
+                    $('#submit').prop('disabled', false);
+                    $('#message').show().html('Password Match').css('color', 'green');
+                } else {
+                    $('#submit').prop('disabled', true);
+                    $('#message').show().html('Password do not match').css('color', 'red');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <%@ include file="../include/headerregisterform.jsp" %>
@@ -31,16 +50,19 @@
             <form:input path="email" name="email"  placeholder="Email"/>
         </div>
         <div class="form-group">
-            <form:input type="password" path="password" name="password" placeholder="Hasło" />
+            <form:input type="password" path="password" name="password"  id="password" placeholder="Hasło" />
         </div>
         <div class="form-group">
-            <input type="password" name="password2" placeholder="Powtórz hasło" />
+            <input  type="password" name="password2"  id="password_confirmation" placeholder="Powtórz hasło" />
+            <p id="message"></p>
         </div>
 
         <div class="form-group form-group--buttons">
-<%--            <a href="login.html" class="btn btn--without-border">Zaloguj się</a>--%>
-            <button class="btn" type="submit">Załóż konto</button>
+            <button class="btn" type="submit" id="submit" onsubmit="checkPassword()">Załóż konto</button>
         </div>
+
+
+
     </form:form>
 
 </section>

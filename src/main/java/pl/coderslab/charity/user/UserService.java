@@ -11,5 +11,7 @@ import javax.transaction.Transactional;
 public class UserService {
     private final UserRepository userRepository;
 
-    public void saveUser(User user){userRepository.save(user);}
+
+    public void saveUser(User user){
+        userRepository.save(user);}
 }
